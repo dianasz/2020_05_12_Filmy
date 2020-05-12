@@ -11,20 +11,20 @@ import java.util.*;
 
 @Repository
 public class MovieRepository {
-    private Map<String, Movie> movies;
+    private List<Movie> movies;
     private EntityManager entityManager;
     private EntityManagerFactory factory;
     private EntityTransaction transaction;
 
     @Autowired
     public MovieRepository(EntityManagerFactory entityManagerFactory) {
-        this.factory=entityManagerFactory;
+        this.factory = entityManagerFactory;
         this.entityManager = factory.createEntityManager();
-        this.transaction=entityManager.getTransaction();
+        this.transaction = entityManager.getTransaction();
     }
 
-    public MovieRepository(Map<String, Movie> movies) {
-        this.movies = new HashMap<>();
+    public MovieRepository(List<Movie> movies) {
+        this.movies = movies;
     }
 
     public void save(Movie movie) {
@@ -43,7 +43,7 @@ public class MovieRepository {
 
     public Movie findByTitle(String title) {
         transaction.begin();
-        Query query = entityManager.createQuery("select m from Movie m where m.title='"+title+"'");
+        Query query = entityManager.createQuery("select m from Movie m where m.title='" + title + "'");
         Movie movie = null;
         for (Object m : query.getResultList()) {
             movie = (Movie) m;
@@ -54,7 +54,7 @@ public class MovieRepository {
 
     public List<Movie> findByCategory(Category category) {
         transaction.begin();
-        Query query=entityManager.createQuery("select m from Movie m where m.category='"+category+"'");
+        Query query = entityManager.createQuery("select m from Movie m where m.category='" + category + "'");
         List resultList = query.getResultList();
         transaction.commit();
         return resultList;

@@ -20,7 +20,7 @@ public class MovieController {
     private EntityManager entityManager;
 
     @PersistenceUnit
-    @Autowired
+    @Autowired //pytanie czy tu konieczne....
     private EntityManagerFactory entityManagerFactory;
 
     @Autowired
@@ -63,8 +63,8 @@ public class MovieController {
 
     @GetMapping("/category")
     public String getCategory(@RequestParam("category") Category category, Model model) {
-        List<Movie> categoryList = movieRepository.findByCategory(category);
-        model.addAttribute("category", categoryList);
+        List<Movie> movies = movieRepository.findByCategory(category);
+        model.addAttribute("movies", movies);
         return "category";
     }
 
