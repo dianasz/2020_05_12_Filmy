@@ -22,13 +22,13 @@
 </nav>
 
 <div class="mx-4">
-        <a th:href="@{'/category?category=' + ${movie.category}}"
-           th:each="movie: ${movies}">
-            <ul>
-                <li th:text="|${movie.title} - ${movie.category} |"><br/>
-                </li>
-            </ul>
-        </a>
-    </div>
+    <a th:href="@{'/movie?title=' + ${movie.title}}"
+       th:each="movie: ${movies}">
+        <ul>
+            <li th:text="|${movie.title} - ${movie.category} |"><br/>
+            </li>
+        </ul>
+    </a>
+</div>
 </body>
 </html>

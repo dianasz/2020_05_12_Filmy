@@ -13,6 +13,7 @@
             margin: 50px;
             padding: 30px;
         }
+
         .task-list {
             margin-left: 50px;
             margin-right: 50px;
@@ -49,7 +50,7 @@
             Title: <input type="text" name="title" th:field="*{title}" placeholder="title"><br/>
             Premiere date: <input type="date" name="premiereDate" th:field="*{premiereDate}" placeholder="data"><br/>
             Description: <textarea rows="7" cols="20" name="description" th:field="*{description}"
-                                placeholder="description"></textarea><br/>
+                                   placeholder="description"></textarea><br/>
             Category:
             <select th:field="*{category}" placeholder="category"><br/>
                 <option selected value="NOTDEFINED">NOTDEFINED</option>
@@ -62,10 +63,6 @@
         </form>
     </div>
 </nav>
-
-
-
-
 
 
 </body>

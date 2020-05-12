@@ -35,9 +35,9 @@ public class MovieController {
     }
 
     @PostMapping("/")
-    public String saveMovie(@RequestParam String title, @RequestParam CharSequence premiereDate, @RequestParam String description, @RequestParam Category category ) {
+    public String saveMovie(@RequestParam String title, @RequestParam CharSequence premiereDate, @RequestParam String description, @RequestParam Category category) {
         Movie movie;
-        if (StringUtils.isEmpty(title) || StringUtils.isEmpty(description) || StringUtils.isEmpty((String) premiereDate)|| StringUtils.isEmpty(String.valueOf(category))){
+        if (StringUtils.isEmpty(title) || StringUtils.isEmpty(description) || StringUtils.isEmpty((String) premiereDate) || StringUtils.isEmpty(String.valueOf(category))) {
             return "err";
         } else {
             LocalDate localDate = LocalDate.parse(premiereDate);

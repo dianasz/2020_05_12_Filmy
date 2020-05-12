@@ -13,6 +13,7 @@
             margin: 50px;
             padding: 30px;
         }
+
         .navbarRow {
             margin: 50px;
             padding: 30px;
@@ -26,11 +27,13 @@
         <h3>List of movies</h3><br/></div>
 </nav>
 <div class="mx-4">
-<a th:href="@{'/movie?title=' + ${movie.title}}"
-   th:each="movie: ${movies}">
+    <a th:href="@{'/movie?title=' + ${movie.title}}"
+       th:each="movie: ${movies}">
 
-    <ul><li th:text="|${movie.title} - ${movie.category} |"><br/>
-        </li></ul>
-</a></div>
+        <ul>
+            <li th:text="|${movie.title} - ${movie.category} |"><br/>
+            </li>
+        </ul>
+    </a></div>
 </body>
 </html>
