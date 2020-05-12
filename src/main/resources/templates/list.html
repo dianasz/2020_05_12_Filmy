@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <style>
+        .navbar {
+            margin: 50px;
+            padding: 30px;
+        }
+        .navbarRow {
+            margin: 50px;
+            padding: 30px;
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <h3>List of movies</h3><br/></div>
+</nav>
+<div class="mx-4">
+<a th:href="@{'/movie?title=' + ${movie.title}}"
+   th:each="movie: ${movies}">
+
+    <ul><li th:text="|${movie.title} - ${movie.category} |"><br/>
+        </li></ul>
+</a></div>
+</body>
+</html>
