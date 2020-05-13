@@ -11,6 +11,7 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String title;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate premiereDate;
