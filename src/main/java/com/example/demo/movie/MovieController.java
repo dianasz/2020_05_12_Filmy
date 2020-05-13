@@ -33,7 +33,7 @@ public class MovieController {
     @PostMapping("/")
     public String saveMovie(@RequestParam String title, @RequestParam CharSequence premiereDate, @RequestParam String description, @RequestParam Category category) {
         Movie movie;
-        if (StringUtils.isEmpty(title) || StringUtils.isEmpty(description) || StringUtils.isEmpty((String) premiereDate) || StringUtils.isEmpty(String.valueOf(category))) {
+        if (checkIfEmpty(title, (String) premiereDate, description, category)) {
             return "err";
         } else {
             LocalDate localDate = LocalDate.parse(premiereDate);
@@ -41,6 +41,10 @@ public class MovieController {
             movieRepository.save(movie);
             return "success";
         }
+    }
+
+    private boolean checkIfEmpty(@RequestParam String title, @RequestParam String premiereDate, @RequestParam String description, @RequestParam Category category) {
+        return StringUtils.isEmpty(title) || StringUtils.isEmpty(description) || StringUtils.isEmpty(premiereDate) || StringUtils.isEmpty(String.valueOf(category));
     }
 
     @GetMapping("/list")
