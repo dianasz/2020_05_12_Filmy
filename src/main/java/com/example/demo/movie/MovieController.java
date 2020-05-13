@@ -19,10 +19,6 @@ public class MovieController {
     private MovieRepository movieRepository;
     private EntityManager entityManager;
 
-    @PersistenceUnit
-    @Autowired //pytanie czy tu konieczne....
-    private EntityManagerFactory entityManagerFactory;
-
     @Autowired
     public MovieController(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
