@@ -7,17 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.thymeleaf.util.StringUtils;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
 import java.time.LocalDate;
 import java.util.List;
 
 @Controller
 public class MovieController {
     private MovieRepository movieRepository;
-    private EntityManager entityManager;
 
     @Autowired
     public MovieController(MovieRepository movieRepository) {
